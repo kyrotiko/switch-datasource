@@ -35,7 +35,6 @@ public class DataSourceManager {
     @PostConstruct
     public void loadDataSource() throws Exception {
         List<Account> accountList = accountService.queryAll();
-        System.out.println(accountList);
         Map<Object, SqlSessionFactory> newSqlSessionFactoryMap = new HashMap<>(16);
         Map<Object, SqlSessionFactory> sqlSessionFactoryMap = sqlSessionTemplate.getTargetSqlSessionFactorys();
         for (Account account : accountList) {
