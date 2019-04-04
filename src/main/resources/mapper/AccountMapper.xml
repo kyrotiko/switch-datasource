@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jinshang.datasource.mapper.AccountMapper">
+    <sql id="Base_Column_List">
+        id, db_name
+    </sql>
+    <select id="select" resultType="com.jinshang.datasource.domain.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account
+    </select>
+    <insert id="insert" parameterType="com.jinshang.datasource.domain.Account">
+        insert into account (
+        <include refid="Base_Column_List"/>
+        )
+        values (#{id}, #{dbName})
+    </insert>
+
+    <update id="createDatabase" parameterType="String">
+        create database ${dbName};
+    </update>
+
+
+    <!--
+
+    use ${dbName};
+        SET NAMES utf8mb4;
+        SET FOREIGN_KEY_CHECKS = 0;
+        DROP TABLE IF EXISTS `user`;
+        CREATE TABLE `user`  (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+        PRIMARY KEY (`id`) USING BTREE
+        ) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+        SET FOREIGN_KEY_CHECKS = 1;
+
+
+    -->
+</mapper>

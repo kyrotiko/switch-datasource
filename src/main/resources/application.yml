@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      system:
+        url: jdbc:mysql://localhost:3307/system?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+      template:
+        url: jdbc:mysql://localhost:3307/{dbName}?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
